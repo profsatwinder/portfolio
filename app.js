@@ -10,7 +10,6 @@
       title: "Postdoctoral Research Fellow | University of Auckland",
       tagline: "Inclusive speech technology • Dysarthric ASR • Low‑resource language AI",
       location: "Auckland, New Zealand",
-      phone: "+64 21 147 6789",
       email: "satwinder.singh@auckland.ac.nz",
       links: [
         { label: "LinkedIn", href: "https://linkedin.com/in/satwinder-singh-8a211551/" },
