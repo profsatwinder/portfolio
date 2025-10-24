@@ -1,4 +1,4 @@
-# Dr Satwinder Singh — Portfolio (GitHub Pages)
+# Dr Satwinder Singh — Portfolio 
 
 A zero-build, single-page React site for your academic portfolio. Uses React + Tailwind via CDNs so you can deploy by simply uploading these files.
 
