@@ -1,19 +1,995 @@
-<!doctype html>
+
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dr Satwinder Singh – Portfolio</title>
-    <meta name="description" content="Portfolio of Dr Satwinder Singh – Dysarthric ASR, inclusive speech technology, low-resource language AI." />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <!-- Tailwind via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React 18 via CDN -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Satwinder Singh - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+      /* Override section heights to fit on one page */
+      section {
+        height: auto;
+        min-height: auto;
+        padding: 3rem 10rem;
+      }
+      
+      #profile {
+        height: auto;
+        padding: 2rem 10rem;
+      }
+      
+      .about-containers {
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+      }
+      
+      .text-container p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+      
+      .experience-details-container {
+        margin-top: 1rem;
+      }
+      
+      .article-container {
+        gap: 1.5rem;
+      }
+      
+      article {
+        width: 8rem;
+      }
+      
+      .experience-sub-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .details-container {
+        padding: 1rem;
+      }
+      
+      .project-img {
+        height: 150px;
+        width: auto;
+        object-fit: cover;
+      }
+      
+      #contact {
+        height: auto;
+        padding: 2rem 10rem;
+      }
+      
+      footer {
+        height: auto;
+        padding: 1rem;
+        margin: 0;
+      }
+      
+      .section__pic-container {
+        height: 300px;
+        width: 300px;
+      }
+      
+      .title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .section__text__p1 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .section__text__p2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      /* Publications Section Styles */
+      .publications-list {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .publication-item {
+        background: white;
+        border: 1px solid rgb(163, 163, 163);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .publication-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      .publication-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: rgb(53, 53, 53);
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+      }
+      
+      .publication-authors {
+        font-size: 0.9rem;
+        color: rgb(85, 85, 85);
+        margin-bottom: 0.5rem;
+        font-style: italic;
+      }
+      
+      .publication-venue {
+        font-size: 0.9rem;
+        color: rgb(100, 100, 100);
+        margin-bottom: 0.5rem;
+      }
+      
+      .publication-links {
+        margin-top: 0.5rem;
+      }
+      
+      .publication-links a {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        margin-right: 0.5rem;
+        background: rgb(53, 53, 53);
+        color: white;
+        border-radius: 1rem;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: background 0.3s ease;
+      }
+      
+      .publication-links a:hover {
+        background: rgb(0, 0, 0);
+      }
+      
+      .publication-year {
+        display: inline-block;
+        background: rgb(250, 250, 250);
+        border: 1px solid rgb(163, 163, 163);
+        padding: 0.3rem 0.8rem;
+        border-radius: 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgb(53, 53, 53);
+        margin-bottom: 0.5rem;
+      }
+      
+      /* Recent Activities Section */
+      .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      
+      .activity-card {
+        background: white;
+        border: 1px solid rgb(163, 163, 163);
+        border-radius: 2rem;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .activity-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      }
+      
+      .activity-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background: rgb(250, 250, 250);
+      }
+      
+      .activity-content {
+        padding: 1.5rem;
+      }
+      
+      .activity-date {
+        font-size: 0.85rem;
+        color: rgb(100, 100, 100);
+        margin-bottom: 0.5rem;
+      }
+      
+      .activity-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: rgb(53, 53, 53);
+        margin-bottom: 0.5rem;
+      }
+      
+      .activity-description {
+        font-size: 0.9rem;
+        color: rgb(85, 85, 85);
+        line-height: 1.5;
+      }
+      
+      /* Hobbies Section */
+      .hobbies-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        font-size: 1rem;
+        color: rgb(85, 85, 85);
+        line-height: 1.6;
+      }
+      
+      .paintings-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      
+      .painting-card {
+        background: white;
+        border: 1px solid rgb(163, 163, 163);
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      
+      .painting-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      }
+      
+      .painting-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+      
+      .painting-info {
+        padding: 1.2rem;
+        background: rgb(250, 250, 250);
+      }
+      
+      .painting-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: rgb(53, 53, 53);
+        margin-bottom: 0.3rem;
+      }
+      
+      .painting-medium {
+        font-size: 0.85rem;
+        color: rgb(100, 100, 100);
+        font-style: italic;
+      }
+      
+      @media print {
+        section {
+          page-break-inside: avoid;
+        }
+      }
+      
+      @media screen and (max-width: 768px) {
+        .publications-list {
+          padding: 0 1rem;
+        }
+        
+        .publication-item {
+          padding: 1rem;
+        }
+        
+        .paintings-gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    
+
   </head>
-  <body class="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-800">
-    <div id="root"></div>
-    <script src="app.js"></script>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Dr. Satwinder Singh</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#hobbies">Hobbies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Dr. Satwinder Singh</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#publications" onclick="toggleMenu()">Publications</a></li>
+          <li><a href="#activities" onclick="toggleMenu()">Activities</a></li>
+          <li><a href="#hobbies" onclick="toggleMenu()">Hobbies</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic-1.jpg" alt="Dr. Satwinder Singh profile picture" width="320" height="320" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Dr. Satwinder Singh</h1>
+        <p class="section__text__p2">Postdoctoral Research Fellow</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Dr_Satwinder_Singh_CV_2025.pdf')""
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://linkedin.com/in/satwinder-singh-8a211551/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Profile"
+            class="icon"
+            onclick="location.href='https://profiles.auckland.ac.nz/satwinder-singh'"
+          />
+                    <div class="scholar-actions">
+        <a class="scholar-badge"
+          href="https://scholar.google.co.nz/citations?user=_F-yJ8gAAAAJ&hl=en"
+          target="_blank" rel="noopener">
+          <img src="./assets/scholar.svg" alt="" aria-hidden="true" />
+          Google Scholar
+        </a>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/profile-pic-3.jpg"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>7+ years <br />Research & Teaching</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>PhD Computer Science<br />Massey University, NZ</p>
+            </div>
+          </div>
+           
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Technical Skills</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Python</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>PyTorch</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>TensorFlow</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>C/C++</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Linux</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>SQL</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Research Expertise</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Speech Recognition</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Deep Learning</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>NLP</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>AI Accessibility</h3>
+                  <p>Expert</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+
+<section id="activities">
+  <p class="section__text__p1">What I've Been Up To</p>
+  <h1 class="title">Recent Activities</h1>
+
+  <div class="activities-grid">
+
+     <!-- p4p 2025-->
+    <div class="activity-card">
+      <div class="activity-slider" data-autoplay="true" data-interval="3500">
+        <button class="slider-btn prev" aria-label="Previous image">‹</button>
+        <div class="slides">
+          <img src="./assets/p4p-2025-2.jpg" alt="Transformer workshop — intro session" class="slide is-active" loading="lazy" />
+          <img src="./assets/p4p-2025-1.JPG" alt="Transformer workshop — hands-on lab" class="slide" loading="lazy" />
+          <img src="./assets/p4p-2025-3.jpg" alt="Transformer workshop — Q&A" class="slide" loading="lazy" />
+          <img src="./assets/p4p-2025-4.jpg" alt="Transformer workshop — Q&A" class="slide" loading="lazy" />
+        </div>
+        <button class="slider-btn next" aria-label="Next image">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="activity-content">
+        <div class="activity-date">October 2025</div>
+        <div class="activity-title">Part IV 2025 </div>
+        <div class="activity-description">
+          Part 4 Research students delivered outstanding work across a range of impactful topics and Secured best industry project in image and voice processing catrory 1 and 2. 
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Transformer Models Workshop -->
+    <div class="activity-card">
+      <div class="activity-slider" data-autoplay="true" data-interval="3500">
+        <button class="slider-btn prev" aria-label="Previous image">‹</button>
+        <div class="slides">
+          <img src="./assets/workshop-1.jpg" alt="Transformer workshop — intro session" class="slide is-active" loading="lazy" />
+          <img src="./assets/workshop-2.jpg" alt="Transformer workshop — hands-on lab" class="slide" loading="lazy" />
+          <img src="./assets/workshop-3.jpg" alt="Transformer workshop — Q&A" class="slide" loading="lazy" />
+        </div>
+        <button class="slider-btn next" aria-label="Next image">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="activity-content">
+        <div class="activity-date">September 2025</div>
+        <div class="activity-title">Transformer Models Workshop</div>
+        <div class="activity-description">
+          Organized and led a one-day workshop on Transformer models with hands-on practical sessions at the University of Auckland.
+        </div>
+      </div>
+    </div>
+
+    <!-- ICASSP 2025 -->
+    <div class="activity-card">
+      <div class="activity-slider" data-autoplay="true" data-interval="3500">
+        <button class="slider-btn prev" aria-label="Previous image">‹</button>
+        <div class="slides">
+          <!-- Use the filenames you actually have (e.g., icassp.JPG or icassp-1.jpg) -->
+          <img src="./assets/icassp-1.JPG" alt="ICASSP 2025 — keynote hall" class="slide is-active" loading="lazy" />
+          <img src="./assets/icassp-2.jpg" alt="ICASSP 2025 — poster session" class="slide" loading="lazy" />
+          <img src="./assets/icassp-3.jpg" alt="ICASSP 2025 — demo area" class="slide" loading="lazy" />
+        </div>
+        <button class="slider-btn next" aria-label="Next image">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="activity-content">
+        <div class="activity-date">April 2025</div>
+        <div class="activity-title">ICASSP 2025 Conference</div>
+        <div class="activity-description">
+          Presented two papers on dysarthric speech recognition at the IEEE International Conference on Acoustics, Speech and Signal Processing in India.
+        </div>
+      </div>
+    </div>
+
+    <!-- ICONIP 2024 -->
+    <div class="activity-card">
+      <div class="activity-slider" data-autoplay="true" data-interval="3500">
+        <button class="slider-btn prev" aria-label="Previous image">‹</button>
+        <div class="slides">
+          <img src="./assets/iconip-1.jpg" alt="ICONIP 2024 — venue" class="slide is-active" loading="lazy" />
+          <img src="./assets/iconip-2.jpg" alt="ICONIP 2024 — talk session" class="slide" loading="lazy" />
+          <img src="./assets/iconip-3.jpg" alt="ICONIP 2024 — networking" class="slide" loading="lazy" />
+        </div>
+        <button class="slider-btn next" aria-label="Next image">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="activity-content">
+        <div class="activity-date">December 2024</div>
+        <div class="activity-title">ICONIP 2024 Conference</div>
+        <div class="activity-description">
+          Presented research on comprehensive performance evaluation of Whisper models in dysarthric speech recognition at ICONIP in New Zealand.
+        </div>
+      </div>
+    </div>
+
+    <!-- ACM MM Asia (Local Arrangement Chair) -->
+    <div class="activity-card">
+      <div class="activity-slider" data-autoplay="true" data-interval="3500">
+        <button class="slider-btn prev" aria-label="Previous image">‹</button>
+        <div class="slides">
+          <img src="./assets/acm-1.jpg" alt="ACM MM Asia — conference hall" class="slide is-active" loading="lazy" />
+          <img src="./assets/acm-2.jpg" alt="ACM MM Asia — organizing team" class="slide" loading="lazy" />
+          <img src="./assets/acm-3.jpg" alt="ACM MM Asia — registration desk" class="slide" loading="lazy" />
+        </div>
+        <button class="slider-btn next" aria-label="Next image">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="activity-content">
+        <div class="activity-date">December 2024</div>
+        <div class="activity-title">Local Arrangement Chair</div>
+        <div class="activity-description">
+          Served as Local Arrangement Chair for the ACM Multimedia Asia Conference held in Auckland, New Zealand.
+        </div>
+      </div>
+    </div>
+
+    <!-- Best Project Award -->
+    <div class="activity-card">
+      <div class="activity-slider" data-autoplay="true" data-interval="3500">
+        <button class="slider-btn prev" aria-label="Previous image">‹</button>
+        <div class="slides">
+          <img src="./assets/p4p-1.JPG" alt="Best Project Award — team photo" class="slide is-active" loading="lazy" />
+          <img src="./assets/p4p-2.jpg" alt="Best Project Award — award ceremony" class="slide" loading="lazy" />
+          <img src="./assets/p4p-3.jpg" alt="Best Project Award — project demo" class="slide" loading="lazy" />
+        </div>
+        <button class="slider-btn next" aria-label="Next image">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="activity-content">
+        <div class="activity-date">November 2024</div>
+        <div class="activity-title">Best Project Award</div>
+        <div class="activity-description">
+          Supervised students Steven Li and Adi Shenoy who won the Best Project Award for developing a Neural Speaker Diarization System for Doctors.
+        </div>
+      </div>
+    </div>
+
+    <!-- PhD Student Supervision -->
+    <div class="activity-card">
+      <div class="activity-slider" data-autoplay="true" data-interval="3500">
+        <button class="slider-btn prev" aria-label="Previous image">‹</button>
+        <div class="slides">
+          <img src="./assets/supervision-1.jpg" alt="Research supervision — meeting" class="slide is-active" loading="lazy" />
+          <img src="./assets/supervision-2.jpg" alt="Research supervision — poster review" class="slide" loading="lazy" />
+          <img src="./assets/supervision-3.jpg" alt="Research supervision — experiment setup" class="slide" loading="lazy" />
+        </div>
+        <button class="slider-btn next" aria-label="Next image">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="activity-content">
+        <div class="activity-date">Ongoing</div>
+        <div class="activity-title">PhD Student Supervision</div>
+        <div class="activity-description">
+          Currently supervising multiple PhD and Honours students on projects related to dysarthric speech recognition, low-resource ASR, and AI accessibility tools.
+        </div>
+      </div>
+    </div>
+
+    
+
+  </div>
+</section>
+
+    <section id="publications">
+      <p class="section__text__p1">Browse My</p>
+      <h1 class="title">Recent Publications</h1>
+
+      <!-- Replace A123456789 with your OpenAlex Author ID, and SCHOLAR_ID with your GS id
+    <div id="cited-by-widget"
+     data-openalex-author="a5070580244"
+     data-since="2014"
+     data-scholar-id="https://scholar.google.co.nz/citations?user=_F-yJ8gAAAAJ&hl=en"></div>
+    Chart.js (CDN) -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    </div> -->
+
+    
+
+      <div class="publications-list">
+
+          <div class="publication-item">
+          <span class="publication-year">2025</span>
+          <div class="publication-title">Convolution-Augmented Transformers for Enhanced Speaker-Independent Dysarthric Speech Recognition</div>
+          <div class="publication-authors">Zihan Zhong, Qianli Wang, Satwinder Singh, Clarion Mendes, Mark Hasegawa-Johnson, Waleed Abdulla, Seyed Reza Shahamiri</div>
+          <div class="publication-venue">IEEE Transactions on Neural Systems and Rehabilitation Engineering</div>
+          <div class="publication-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/11168953" target="_blank">Paper</a>
+          </div>
+        </div>
+        
+
+         <div class="publication-item">
+          <span class="publication-year">2025</span>
+          <div class="publication-title">Convolution-Augmented Transformers for Enhanced Speaker-Independent Dysarthric Speech Recognition</div>
+          <div class="publication-authors">Zihan Zhong, Qianli Wang, Satwinder Singh, Clarion Mendes, Mark Hasegawa-Johnson, Waleed Abdulla, Seyed Reza Shahamiri</div>
+          <div class="publication-venue">IEEE Transactions on Neural Systems and Rehabilitation Engineering</div>
+          <div class="publication-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/11168953" target="_blank">Paper</a>
+          </div>
+        </div>
+        
+        <div class="publication-item">
+          <span class="publication-year">2025</span>
+          <div class="publication-title">Robust Cross-Etiology and Speaker-Independent Dysarthric Speech Recognition</div>
+          <div class="publication-authors">Satwinder Singh, Qianli Wang, Zihan Zhong, Clarion Mendes, Mark Hasegawa-Johnson, Waleed Abdulla, Seyed Reza Shahamiri</div>
+          <div class="publication-venue">IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), India, 2025</div>
+          <div class="publication-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10888041/" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <span class="publication-year">2025</span>
+          <div class="publication-title">Dysarthric Speech Conformer: Adaptation for Sequence-to-Sequence Dysarthric Speech Recognition</div>
+          <div class="publication-authors">Qianli Wang, Zihan Zhong, Satwinder Singh, Clarion Mendes, Mark Hasegawa-Johnson, Waleed Abdulla, Seyed Reza Shahamiri</div>
+          <div class="publication-venue">IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), India, 2025</div>
+          <div class="publication-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10889046" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <span class="publication-year">2024</span>
+          <div class="publication-title">A Comprehensive Performance Evaluation of Whisper Models in Dysarthric Speech Recognition</div>
+          <div class="publication-authors">Satwinder Singh, Zihan Zhong, Qianli Wang, Clarion Mendes, Mark Hasegawa-Johnson, Waleed Abdulla, Seyed Reza Shahamiri</div>
+          <div class="publication-venue">International Conference on Neural Information Processing (ICONIP), New Zealand, 2024</div>
+          <div class="publication-links">
+            <a href="https://link.springer.com/chapter/10.1007/978-981-96-6960-8_6" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <span class="publication-year">2023</span>
+          <div class="publication-title">PhasePerturbation: Speech Data Augmentation via Phase Perturbation for Automatic Speech Recognition</div>
+          <div class="publication-authors">Chengxi Lei, Satwinder Singh*, Xiaoyun Jia, Feng Hou, Ruili Wang</div>
+          <div class="publication-venue">ACM MM Asia, 2023</div>
+          <div class="publication-links">
+            <a href="https://dl.acm.org/doi/abs/10.1145/3611380.3628555" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <span class="publication-year">2023</span>
+          <div class="publication-title">Real and Synthetic Punjabi Speech Datasets for Speech Recognition</div>
+          <div class="publication-authors">Satwinder Singh, Ruili Wang, Feng Hou</div>
+          <div class="publication-venue">Data in Brief Journal, 2023</div>
+          <div class="publication-links">
+            <a href="https://www.sciencedirect.com/science/article/pii/S2352340923009265" target="_blank">Paper</a>
+            <a href="https://data.mendeley.com/datasets/sdbc8f5b77/2" target="_blank">Dataset</a>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <span class="publication-year">2023</span>
+          <div class="publication-title">A Novel Self-training Approach for Low-resource Speech Recognition</div>
+          <div class="publication-authors">Satwinder Singh, Ruili Wang, Feng Hou</div>
+          <div class="publication-venue">Proc. Interspeech, Ireland, pp. 1588-1592, 2023</div>
+          <div class="publication-links">
+            <a href="https://www.isca-archive.org/interspeech_2023/singh23b_interspeech.html" target="_blank">Paper</a>
+          </div>
+        </div>
+
+        </div>
+
+      </div>
+    </section>
+<!-- Add this section after #experience and before #publications -->
+<section id="projects">
+  <p class="section__text__p1">Explore My</p>
+  <h1 class="title">Featured Projects</h1>
+  
+  <div class="publications-list">
+    
+    <!-- Project 1: Dysarthric ASR System -->
+     <div class="publication-item">
+      <span class="publication-year">Active</span>
+      <div class="publication-title">Dysarthric Speech Recognition System</div>
+      <div class="publication-authors">Deep Learning • PyTorch • Accessibility</div>
+      <div class="publication-venue">
+        An end-to-end automatic speech recognition system designed specifically for dysarthric speech using convolution-augmented transformers. Achieves state-of-the-art performance across multiple etiology groups.
+      </div>
+      <!-- Local demo video (prefer MP4/WebM for browser support; MOV as fallback) -->
+      <div class="project-demo">
+        <video controls playsinline width="100%" poster="./assets/demo-poster.jpg">
+          <source src="./assets/demo.mp4" type="video/mp4">
+          <source src="./assets/demo.webm" type="video/webm">
+          <source src="./assets/demo.mov" type="video/quicktime">
+          Your browser does not support the video tag. <a href="./assets/demo.mov">Download demo.mov</a>
+        </video>
+      </div>
+      <div class="publication-links">
+        <a href="https://github.com/yourusername/dysarthric-asr" target="_blank">GitHub</a>
+        <a href="./assets/demo.mov" target="_blank">Download Demo</a>
+      </div>
+    </div>
+
+    <!-- Project 5: Neural Speaker Diarization -->
+    <div class="publication-item">
+      <span class="publication-year">2024</span>
+      <div class="publication-title">Neural Speaker Diarization for Medical Consultations</div>
+      <div class="publication-authors">Supervised Project • Audio Processing • Healthcare AI</div>
+      <div class="publication-venue">
+        Supervised development of an AI system to automatically identify and separate speakers in doctor-patient conversations. Developed by students Steven Li and Adi Shenoy, winning Best Project Award in 2024.
+      </div>
+      <!-- YouTube Demo Embed -->
+      <div class="project-demo">
+        <iframe 
+          src="https://www.youtube.com/embed/BLH_jVzBLis?si=MAm5Ch8HJEzizwHQ" 
+          title="Speaker Diarization Demo"
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="publication-links">
+        <a href="https://www.youtube.com/embed/BLH_jVzBLis?si=MAm5Ch8HJEzizwHQ" target="_blank">Watch Demo</a>
+      </div>
+    </div>
+
+    <!-- Project 2: Te Reo Māori ASR -->
+    <div class="publication-item">
+      <span class="publication-year">Research</span>
+      <div class="publication-title">Te Reo Māori Speech Recognition</div>
+      <div class="publication-authors">Low-Resource ASR • Transfer Learning • Cultural AI</div>
+      <div class="publication-venue">
+        Developing robust ASR models for te reo Māori using self-training and meta-learning approaches to overcome data scarcity. Collaborating with Māori language experts to ensure cultural appropriateness.
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7137229844890746881?collapsed=1" height="542" width="480" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>      </div>
+      <div class="publication-links">
+        <a href="#" target="_blank">Paper</a>
+      </div>
+    </div>
+
+    <!-- Project 3: Punjabi Speech Dataset -->
+    <div class="publication-item">
+      <span class="publication-year">2023</span>
+      <div class="publication-title">Punjabi Speech Corpus</div>
+      <div class="publication-authors">Dataset • Speech Synthesis • Open Source</div>
+      <div class="publication-venue">
+        Created comprehensive real and synthetic speech datasets for Punjabi language containing over 100 hours of annotated audio. Publicly available for research purposes on Mendeley Data.
+      </div>
+      <div class="publication-links">
+        <a href="https://data.mendeley.com/datasets/sdbc8f5b77/2" target="_blank">Dataset</a>
+        <a href="https://www.sciencedirect.com/science/article/pii/S2352340923009265" target="_blank">Paper</a>
+      </div>
+    </div>
+
+ 
+    <!-- Project 6: Speech Data Augmentation -->
+    <div class="publication-item">
+      <span class="publication-year">2023</span>
+      <div class="publication-title">PhasePerturbation Augmentation</div>
+      <div class="publication-authors">Data Augmentation • ASR Improvement • Signal Processing</div>
+      <div class="publication-venue">
+        Novel speech data augmentation technique using phase perturbation to improve ASR model robustness and generalization without requiring additional labeled data. Published at ACM MM Asia 2023.
+      </div>
+      <div class="publication-links">
+        <a href="https://dl.acm.org/doi/abs/10.1145/3611380.3628555" target="_blank">Paper</a>
+        <a href="#" target="_blank">Code</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    <section id="hobbies">
+      <p class="section__text__p1">Beyond Research</p>
+      <h1 class="title">My Hobbies</h1>
+      <div class="hobbies-intro">
+        <p>
+          When I'm not working on speech recognition algorithms, I love to express my creativity through watercolor painting. 
+          Painting allows me to unwind and see the world from a different perspective. Here are some of my recent watercolor works 
+          that capture moments of tranquility and beauty.
+        </p>
+      </div>
+      <div class="paintings-gallery">
+        
+        <div class="painting-card">
+          <img src="./assets/painting-1.jpg" alt="Watercolor Landscape" class="painting-image" />
+          <div class="painting-info">
+            <div class="painting-title">Soul on stroll</div>
+            <div class="painting-medium">Watercolor on paper</div>
+          </div>
+        </div>
+
+        <div class="painting-card">
+          <img src="./assets/painting-2.jpg" alt="Watercolor Sunset" class="painting-image" />
+          <div class="painting-info">
+            <div class="painting-title">Her</div>
+            <div class="painting-medium">Watercolor on paper</div>
+          </div>
+        </div>
+
+        <div class="painting-card">
+          <img src="./assets/painting-3.jpg" alt="Watercolor Flowers" class="painting-image" />
+          <div class="painting-info">
+            <div class="painting-title">Blooming Garden</div>
+            <div class="painting-medium">Watercolor on paper</div>
+          </div>
+        </div>
+
+        <div class="painting-card">
+          <img src="./assets/painting-4.jpg" alt="Watercolor Ocean" class="painting-image" />
+          <div class="painting-info">
+            <div class="painting-title">She said!</div>
+            <div class="painting-medium">Watercolor on paper</div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:satwinder.singh@auckland.ac.nz">satwinder.singh@auckland.ac.nz</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://linkedin.com/in/satwinder-singh-8a211551/">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2025 Dr. Satwinder Singh. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
